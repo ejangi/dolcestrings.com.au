@@ -24,5 +24,5 @@ services:
       - 3306:3306
     environment:
       MYSQL_DATABASE: dolcestrings
-      MYSQL_PASSWORD_FILE: /tmp/mariadb_root_password
+      MYSQL_ROOT_PASSWORD_FILE: /tmp/mariadb_root_password
     restart: on-failure
