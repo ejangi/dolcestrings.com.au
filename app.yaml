@@ -1,7 +1,13 @@
 # App Engine runtime configuration
 runtime: custom
 env: flex
-
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 0.6
+  disk_size_gb: 10
+  
 # Defaults to "serve index.php" and "serve public/index.php". Can be used to
 # serve a custom PHP front controller (e.g. "serve backend/index.php") or to
 # run a long-running PHP script as a worker process (e.g. "php worker.php").
@@ -42,3 +48,5 @@ env_variables:
   WORDPRESS_SECURE_AUTH_SALT: 'secureauthKey'
   WORDPRESS_LOGGED_IN_SALT: 'loggedinSalt'
   WORDPRESS_NONCE_SALT: 'noneSalt'
+  WORDPRESS_THEMES: hestia
+  WORDPRESS_PLUGINS: wp-stateless
