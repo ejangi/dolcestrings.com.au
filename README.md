@@ -1,6 +1,15 @@
 # dolcestrings.com.au wordpress website
 
-This is a dockerised wordpress website, with two containers:
+This dockerised version of wordpress runs locally using:
 
-1. WordPress running a standard WordPress docker image
-2. MariaDB database with CRON added to export a nightly SQL backup
+```bash
+docker-compose build
+docker-compose up
+```
+
+... and in production on Google App Engine:
+
+```bash
+gcloud app deploy
+gcloud app deploy cron.yaml
+```
