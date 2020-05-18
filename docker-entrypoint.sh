@@ -281,11 +281,16 @@ EOPHP
 	done
 fi
 
-#vendor/bin/wp plugin install --allow-root wp-stateless advanced-download-details-for-edd akismet crop-thumbnails easy-digital-downloads featured-video-plus pirate-forms showcase-toolkit testimonials-for-wp themeisle-companion wp-instagram-widget wp-mail-smtp
-#vendor/bin/wp theme install --allow-root hestia
-
 if [ "$PORT" != '80' ]; then
 	sed -i "s/80/$PORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
+fi
+
+if [ "$WORDPRESS_THEMES" ]; then
+	wp theme install --allow-root $WORDPRESS_THEMES || true 
+fi
+
+if [ "$WORDPRESS_PLUGINS" ]; then
+	wp plugin install --allow-root $WORDPRESS_PLUGINS || true 
 fi
 
 exec "$@"
