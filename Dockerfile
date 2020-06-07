@@ -1,4 +1,4 @@
-FROM wordpress:latest
+FROM wordpress:5.4.1-php7.3-apache
 
 ENV PORT 8080
 EXPOSE $PORT

@@ -28,6 +28,8 @@ define('WP_CACHE', false);
 // Disable pseudo cron behavior
 define('DISABLE_WP_CRON', true);
 
+define( 'WP_AUTO_UPDATE_CORE', false );
+
 if (
     isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
     strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false
@@ -107,7 +109,7 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', !$onGae);
+// define('WP_DEBUG', !$onGae);
 
 /* That's all, stop editing! Happy blogging. */
 /** Absolute path to the WordPress directory. */
