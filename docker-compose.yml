@@ -1,32 +1,19 @@
-version: '3.1'
+version: '3.2'
 services:
-  dolcestrings:
+  app:
     build:
-        context: .
-        dockerfile: Dockerfile
+      context: .
+      args:
+        _WP_DB_HOST: "127.0.0.1"
+        _WP_DB_USER: dolcestrings_wp
+        _WP_DB_NAME: dolcestrings_wp
+        _WP_DB_PASSWORD: <insert_password_here>
+        _WP_THEMES: hhttps://storage.googleapis.com/dolcestrings-wp-media/showcase.zip
+        _WP_PLUGINS: classic-editor wp-stateless crop-thumbnails easy-digital-downloads featured-video-plus pirate-forms testimonials-for-wp themeisle-companion wp-mail-smtp
+        _CLOUDSQL_INSTANCE: "dolcestrings:australia-southeast1:mysql"
+        _SERVICE_ACCOUNT_FILE: service-account.json
+    environment: 
+      PORT: 3000
     ports:
-      - 3000:8080
-    volumes:
-      - ./php.ini:/usr/local/etc/php/php.ini 
-      - ./mariadb_root_password:/tmp/mariadb_root_password
-    environment:
-      CLOUD_SQL_INSTANCE: ""
-      PORT: 8080
-      WORDPRESS_DB_HOST: dolcestrings_db
-      WORDPRESS_DB_USER: dolcestrings
-      WORDPRESS_DB_NAME: dolcestrings_wp
-      WORDPRESS_DB_PASSWORD_FILE: /tmp/mariadb_root_password
-      WORDPRESS_THEMES: hestia
-      WORDPRESS_PLUGINS: wp-stateless crop-thumbnails easy-digital-downloads featured-video-plus pirate-forms testimonials-for-wp themeisle-companion wp-mail-smtp
-    restart: always
-  dolcestrings_db:
-    image: mariadb:latest
-    volumes:
-        - ./mariadb-data:/var/lib/mysql
-        - ./mariadb_root_password:/tmp/mariadb_root_password
-    environment:
-      MYSQL_DATABASE: dolcestrings_wp
-      MYSQL_USER: dolcestrings
-      MYSQL_PASSWORD_FILE: /tmp/mariadb_root_password
-      MYSQL_ROOT_PASSWORD_FILE: /tmp/mariadb_root_password
+      - 3000:3000
     restart: always

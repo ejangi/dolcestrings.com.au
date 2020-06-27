@@ -15,7 +15,7 @@
  */
 
 // $onGae is true on production.
-if (isset($_SERVER['GAE_ENV'])) {
+if (isset($_SERVER['_WP_ENV'])) {
     $onGae = true;
 } else {
     $onGae = false;
@@ -52,10 +52,10 @@ define('WP_SITEURL', $protocol_to_use . HTTP_HOST);
 define('WP_HOME', $protocol_to_use . HTTP_HOST);
 
 // ** MySQL settings - You can get this info from your web host ** //
-define('DB_NAME', getenv('WORDPRESS_DB_NAME'));
-define('DB_HOST', getenv('WORDPRESS_DB_HOST'));
-define('DB_USER', getenv('WORDPRESS_DB_USER'));
-define('DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD'));
+define('DB_NAME', getenv('_WP_DB_NAME'));
+define('DB_HOST', getenv('_WP_DB_HOST'));
+define('DB_USER', getenv('_WP_DB_USER'));
+define('DB_PASSWORD', getenv('_WP_DB_PASSWORD'));
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
@@ -72,14 +72,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         getenv('WORDPRESS_AUTH_KEY'));
-define('SECURE_AUTH_KEY',  getenv('WORDPRESS_SECURE_AUTH_KEY'));
-define('LOGGED_IN_KEY',    getenv('WORDPRESS_LOGGED_IN_KEY'));
-define('NONCE_KEY',        getenv('WORDPRESS_NONCE_KEY'));
-define('AUTH_SALT',        getenv('WORDPRESS_AUTH_SALT'));
-define('SECURE_AUTH_SALT', getenv('WORDPRESS_SECURE_AUTH_SALT'));
-define('LOGGED_IN_SALT',   getenv('WORDPRESS_LOGGED_IN_SALT'));
-define('NONCE_SALT',       getenv('WORDPRESS_NONCE_SALT'));
+define('AUTH_KEY',         getenv('_WP_AUTH_KEY'));
+define('SECURE_AUTH_KEY',  getenv('_WP_SECURE_AUTH_KEY'));
+define('LOGGED_IN_KEY',    getenv('_WP_LOGGED_IN_KEY'));
+define('NONCE_KEY',        getenv('_WP_NONCE_KEY'));
+define('AUTH_SALT',        getenv('_WP_AUTH_SALT'));
+define('SECURE_AUTH_SALT', getenv('_WP_SECURE_AUTH_SALT'));
+define('LOGGED_IN_SALT',   getenv('_WP_LOGGED_IN_SALT'));
+define('NONCE_SALT',       getenv('_WP_NONCE_SALT'));
 
 /**#@-*/
 /**
@@ -107,7 +107,7 @@ define('WPLANG', '');
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', !$onGae);
+// define('WP_DEBUG', !$onGae);
 
 /* That's all, stop editing! Happy blogging. */
 /** Absolute path to the WordPress directory. */
